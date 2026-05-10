@@ -45,7 +45,7 @@ window.navigator.clipboard.writeText(Password)
   // Passwordgenerator() you cant call callback function manually it only call by paticular element like button or use another hook cakk useEffect() 
 useEffect(() => {
   Passwordgenerator()
-} , [len , numallow , setpassword ,charallow ])
+} , [Passwordgenerator])
 //  you can use normall function as well as useeffect to make fully fuction without callback also but this way it optemize it . 
 
   return (
@@ -65,7 +65,7 @@ useEffect(() => {
 value={Password}
 className='outline-none w-full py-2 px-4 '
 placeholder='password'
-readOnly
+onChange={(e) => setpassword(e.target.value)}
 ref={passreff}
 />
 {/* here is no relation between input and button so this button copy value from input may be this button presentin last of page here we use usereff hooks  */}

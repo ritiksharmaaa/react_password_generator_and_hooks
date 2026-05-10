@@ -81,7 +81,7 @@ useEffect(() => {
                     value={Password}
                     className='outline-none w-full py-2 px-4 '
                     placeholder='password'
-                    readOnly
+                    onChange={(e) => setpassword(e.target.value)}
                     ref={passreff}
                   />
                   <button onClick={copypasstoclipboard} className='outline-none bg-blue-500 text-white px-3 py-0.5 shrink-0 '>Copy</button>
@@ -141,7 +141,7 @@ useEffect(() => {
                       value={Password}
                       className="revampInput"
                       placeholder="Your password will appear here"
-                      readOnly
+                      onChange={(e) => setpassword(e.target.value)}
                       ref={passreff}
                     />
                     <button type="button" onClick={copypasstoclipboard} className="primaryBtn">Copy</button>

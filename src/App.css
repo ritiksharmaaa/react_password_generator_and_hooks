@@ -1,0 +1,278 @@
+/* Revamped UI styles (logic unchanged) */
+
+.appShell {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.revampedBg {
+  background:
+    radial-gradient(1000px 700px at 20% 15%, rgba(99, 102, 241, 0.45), transparent 60%),
+    radial-gradient(900px 650px at 85% 25%, rgba(236, 72, 153, 0.35), transparent 55%),
+    radial-gradient(850px 700px at 45% 85%, rgba(34, 211, 238, 0.28), transparent 55%),
+    linear-gradient(135deg, #070a17 0%, #0a1026 45%, #090a12 100%);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.revampedBg::before {
+  content: "";
+  position: fixed;
+  inset: -2px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 25% 15%, rgba(255, 255, 255, 0.08), transparent 42%),
+    radial-gradient(circle at 70% 35%, rgba(255, 255, 255, 0.06), transparent 44%),
+    radial-gradient(circle at 45% 80%, rgba(255, 255, 255, 0.06), transparent 45%);
+  opacity: 0.7;
+  filter: blur(0.2px);
+}
+
+.originalBg {
+  background-color: rgb(174, 209, 221);
+  color: #111827;
+}
+
+.pageEnter {
+  animation: pageEnter 650ms cubic-bezier(0.21, 1, 0.32, 1) both;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.noticeBanner {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  max-width: min(920px, calc(100% - 32px));
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(17, 24, 39, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.35);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 14px;
+  line-height: 1.25rem;
+  transition: opacity 450ms ease, transform 450ms ease;
+}
+
+.noticeBannerHidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-12px);
+  pointer-events: none;
+}
+
+.viewToggle {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 60;
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(17, 24, 39, 0.62);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.35);
+  transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease;
+}
+
+.originalBg .viewToggle {
+  background: rgba(255, 255, 255, 0.55);
+  border-color: rgba(17, 24, 39, 0.16);
+  color: rgba(17, 24, 39, 0.92);
+}
+
+.viewToggle:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.viewToggle:active {
+  transform: translateY(0);
+}
+
+.revampPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.revampPillSoft {
+  opacity: 0.92;
+}
+
+.revampTitle {
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+}
+
+.revampSubtitle {
+  max-width: 58ch;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.glassCard {
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
+  padding: 18px;
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.glassCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 40px 110px rgba(0, 0, 0, 0.5);
+}
+
+.revampLabel {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.inputShell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.18);
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.inputShell:focus-within {
+  border-color: rgba(99, 102, 241, 0.55);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.18);
+  background: rgba(0, 0, 0, 0.26);
+}
+
+.revampInput {
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 14px;
+}
+
+.revampInput::placeholder {
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.primaryBtn {
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 1) 0%, rgba(236, 72, 153, 0.95) 55%, rgba(34, 211, 238, 0.92) 100%);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: 0 18px 45px rgba(99, 102, 241, 0.18);
+  transition: transform 160ms ease, filter 160ms ease, box-shadow 160ms ease;
+  white-space: nowrap;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+  box-shadow: 0 22px 60px rgba(236, 72, 153, 0.18);
+}
+
+.primaryBtn:active {
+  transform: translateY(0);
+  filter: brightness(1);
+}
+
+.revampDivider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+}
+
+.controlBlock {
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 14px;
+}
+
+.controlLabel {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.controlValue {
+  font-size: 13px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.controlHelp {
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.25rem;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.revampRange {
+  width: 100%;
+  margin-top: 12px;
+  accent-color: rgb(99, 102, 241);
+}
+
+.revampCheck {
+  height: 18px;
+  width: 18px;
+  accent-color: rgb(99, 102, 241);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pageEnter {
+    animation: none;
+  }
+  .glassCard,
+  .viewToggle,
+  .noticeBanner,
+  .inputShell,
+  .primaryBtn {
+    transition: none;
+  }
+}

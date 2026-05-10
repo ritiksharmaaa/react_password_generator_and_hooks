@@ -91,7 +91,7 @@ useEffect(() => {
 
                   <div className="flex items-center  gap-x-1  ">
 
-                    <input type="range" min={6} max={100} className='cursor-pointer' onChange={(e) => { setlen(e.target.value) }} />
+                    <input type="range" min={6} max={100} value={len} className='cursor-pointer' onChange={(e) => { setlen(e.target.value) }} />
                     <label> Length : {len}</label>
 
 
@@ -99,7 +99,7 @@ useEffect(() => {
 
                   <div className="flex items-center  gap-x-1  ">
 
-                    <input type='checkbox' defaultChecked={numallow} id='numberInput' onChange={() => { setnumallow((prev) => !prev) }} />
+                    <input type='checkbox' checked={numallow} id='numberInput' onChange={() => { setnumallow((prev) => !prev) }} />
                     <label htmlFor='numberInput'> NumAllowed</label>
 
 
@@ -107,8 +107,8 @@ useEffect(() => {
 
                   <div className="flex items-center  gap-x-1  ">
 
-                    <input type='checkbox' defaultChecked={charallow} id='charterInput' onChange={() => { setcharallow((prev) => !prev) }} />
-                    <label htmlFor='charterInput '> CharAllowed </label>
+                    <input type='checkbox' checked={charallow} id='charterInput' onChange={() => { setcharallow((prev) => !prev) }} />
+                    <label htmlFor='charterInput'> CharAllowed </label>
 
 
                   </div>
